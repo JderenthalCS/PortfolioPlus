@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Woven geometric border frame */
+.weave {
+  --size: 180px;
+  --line: 4px;
+  --color: #465aeb;  /* main ribbon */
+  --color2: #7c3aed; /* optional 2nd tint */
+  --color3: #22c55e; /* optional 3rd tint */
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 2rem 0;
+}
+
+/* Shared ring styles */
+.weave::before,
+.weave::after,
+.weave > .weave-inner,
+.weave > .weave-third {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: var(--line) solid var(--color);
+  border-radius: calc(var(--size) / 3 - var(--line));
+  pointer-events: none;
+
+  /* makes it feel like a ribbon instead of a flat line */
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+}
+
+/* Your original two */
+.weave::before {
+  transform: rotate(30deg);
+  border-color: var(--color2);
+  z-index: 2;
+}
+
+.weave::after {
+  transform: rotate(60deg);
+  border-color: var(--color);
+  z-index: 3;
+}
+
+/* Existing inner ring (0deg) */
+.weave > .weave-inner {
+  transform: rotate(0deg);
+  border-color: color-mix(in srgb, var(--color) 70%, white 30%);
+  z-index: 1;
+}
+
+/* NEW third ribbon (90deg) */
+.weave > .weave-third {
+  transform: rotate(90deg);
+  border-color: var(--color3);
+  z-index: 4;
+}
+
+/* Optional: subtle “ribbon sheen” */
+.weave::before,
+.weave::after,
+.weave > .weave-inner,
+.weave > .weave-third {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.0) 45%,
+      rgba(0,0,0,0.12) 70%,
+      rgba(0,0,0,0.0)
+    );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  /* “hollow out” the fill so only the border shows */
+  padding: var(--line);
+  box-sizing: border-box;
+}
+
+/* Image wrapper */
+.weave img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--size) / 3 - var(--line));
+  z-index: 0;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-chunk {
+  flex-shrink: 0;
+  padding-right: 2rem;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-25%); }
+}
+
+.marquee-left .marquee-track {
+  animation: scroll-left 30s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+
+@keyframes wave-pan {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -200px;
+  }
+}
+
+.wave-footer {
+  position: relative;
+  height: 16px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("https://freight.cargo.site/w/2000/q/75/i/e4c6fca5cb2f46b6e6baeaa6b9e263f9190f6374dd3293fbb0798a6e1a894f9c/wavy_13x.png");
+  background-repeat: repeat-x;
+  background-size: auto 8px;
+  background-position: left center;
+  animation: wave-pan 8s linear infinite;
+}
+
+/* hide scrollbar but keep scroll */
+::-webkit-scrollbar {
+  display: none;
+}
