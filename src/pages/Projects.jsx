@@ -277,18 +277,18 @@ export default function Projects() {
         [background-size:40px_40px]"
       />
 
-      <div className="relative z-10 px-10 py-6">
-        <section className="mt-10">
-          <div className="mb-8 flex justify-center">
-            <h2 className="font-rowdies text-center text-5xl text-black/90">
-              Featured Projects
-            </h2>
-          </div>
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 py-6">
+  <section className="mt-8 md:mt-10">
+    <div className="mb-6 md:mb-8 flex justify-center">
+      <h2 className="font-rowdies text-center text-3xl sm:text-4xl md:text-5xl text-black/90 leading-tight">
+        Featured Projects
+      </h2>
+    </div>
 
           <FeaturedProjectsScroller projects={featuredProjects} />
         </section>
 
-        <section className="mx-auto mt-16 max-w-7xl">
+        <section className="mx-auto mt-12 md:mt-16 max-w-7xl">
           <div className="flex items-center gap-4">
             <div className="h-[2px] flex-1 bg-black" />
             <span className="font-rowdies text-sm uppercase tracking-[0.25em] text-black/60">
@@ -297,14 +297,14 @@ export default function Projects() {
             <div className="h-[2px] flex-1 bg-black" />
           </div>
 
-          <p className="mx-auto mt-5 max-w-3xl text-center text-base leading-relaxed text-black/70">
+          <p className="mx-auto mt-5 max-w-3xl px-2 text-center text-sm sm:text-base leading-relaxed text-black/70">
             I’ve grouped these projects by category to better represent the kind
             of work I enjoy building most, from workflow automation and data
             analysis to full software applications.
           </p>
         </section>
 
-        <section className="mx-auto mt-16 max-w-7xl space-y-10">
+        <section className="mx-auto mt-12 md:mt-16 max-w-7xl space-y-6 md:space-y-10">
           {categorizedProjects.map((section) => (
             <ProjectsAccordionSection key={section.title} section={section} />
           ))}
@@ -340,7 +340,7 @@ function FeaturedProjectsScroller({ projects }) {
     }
 
     const visibleRatio = scrollEl.clientWidth / scrollEl.scrollWidth
-    const thumbWidth = Math.max(90, trackWidth * visibleRatio)
+    const thumbWidth = Math.max(60, trackWidth * visibleRatio)
     const maxThumbLeft = trackWidth - thumbWidth
     const scrollRatio = scrollEl.scrollLeft / maxScroll
     const thumbLeft = scrollRatio * maxThumbLeft
@@ -428,16 +428,19 @@ function FeaturedProjectsScroller({ projects }) {
     <div className="w-full">
       <div
         ref={scrollRef}
-        className="flex gap-8 overflow-x-auto px-10 pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto px-1 sm:px-2 md:px-10 pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project) => (
-          <div key={project.title} className="w-[860px] shrink-0">
+          <div
+            key={project.title}
+            className="w-[92vw] sm:w-[720px] xl:w-[860px] shrink-0"
+          >
             <ProjectCard project={project} featured />
           </div>
         ))}
       </div>
 
-      <div className="px-10">
+      <div className="hidden md:block px-10">
         <div
           ref={trackRef}
           onMouseDown={handleTrackClick}
@@ -470,22 +473,22 @@ function ProjectsAccordionSection({ section }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className={`relative z-10 flex w-full items-center justify-between border-2 border-black px-5 py-4 text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_black] ${section.accent}`}
+        className={`relative z-10 flex w-full items-center justify-between border-2 border-black px-4 sm:px-5 py-3 sm:py-4 text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_black] ${section.accent}`}
       >
-        <span className="font-rowdies text-2xl text-black">
+        <span className="font-rowdies text-lg sm:text-xl md:text-2xl text-black">
           {section.title}
         </span>
 
-        <span className="font-rowdies text-2xl text-black">
+        <span className="font-rowdies text-xl sm:text-2xl text-black">
           {open ? "−" : "+"}
         </span>
       </button>
 
       {open && (
         <div
-          className={`-mt-[2px] border-2 border-black p-5 shadow-[4px_4px_0px_black] ${section.trayAccent}`}
+          className={`-mt-[2px] border-2 border-black p-3 sm:p-4 md:p-5 shadow-[4px_4px_0px_black] ${section.trayAccent}`}
         >
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {section.projects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -502,30 +505,33 @@ function ProjectCard({ project, featured = false }) {
       className={[
         "grid overflow-hidden border-2 border-black bg-[#FEE2C1]",
         "transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_black]",
-        featured
-          ? "h-[540px] grid-cols-[36%_64%]"
-          : "min-h-[430px] grid-cols-[36%_64%]",
+        "grid-cols-1 md:grid-cols-[36%_64%]",
+        featured ? "min-h-[unset] md:h-[540px]" : "min-h-[unset] md:min-h-[430px]",
       ].join(" ")}
     >
-      <div className="flex items-center justify-center border-r-2 border-black bg-black p-4">
-  <img
-    src={project.image}
-    alt={project.title}
-    className="h-full w-full object-contain"
-  />
-</div>
+      <div className="flex min-h-[220px] items-center justify-center border-b-2 md:border-b-0 md:border-r-2 border-black bg-black p-4">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full max-h-[260px] md:max-h-none w-full object-contain"
+        />
+      </div>
 
-      <div className="flex h-full flex-col justify-between p-5">
+      <div className="flex h-full flex-col justify-between p-4 sm:p-5">
         <div>
           <div className="border-b border-black/25 pb-3">
-            <h3 className="font-rowdies text-3xl text-black">{project.title}</h3>
+            <h3 className="font-rowdies text-xl sm:text-2xl md:text-3xl text-black leading-tight">
+              {project.title}
+            </h3>
           </div>
 
           <div className="pt-4 text-black/80">
-            <p className="text-base leading-relaxed">{project.summary}</p>
+            <p className="text-sm sm:text-base leading-relaxed">
+              {project.summary}
+            </p>
 
             {!!project.bullets?.length && (
-              <ul className="mt-3 list-disc pl-5 text-base leading-relaxed">
+              <ul className="mt-3 list-disc pl-5 text-sm sm:text-base leading-relaxed space-y-1">
                 {project.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
@@ -539,7 +545,7 @@ function ProjectCard({ project, featured = false }) {
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
-                  <IconBox  key={tool.name} item={tool} />
+                  <IconBox key={tool.name} item={tool} />
                 ))}
               </div>
             </div>
@@ -547,15 +553,15 @@ function ProjectCard({ project, featured = false }) {
         </div>
 
         {!project.hideButton && (project.href || project.github) && (
-  <a
-    href={project.href || project.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-4 w-fit border-2 border-black bg-[#22c55e] px-4 py-2 text-xs font-rowdies uppercase tracking-wide text-black transition-all duration-200 hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-[3px_3px_0px_black] active:translate-y-[1px] active:shadow-none"
-  >
-    {project.buttonLabel || "GitHub"} →
-  </a>
-)}
+          <a
+            href={project.href || project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 w-full sm:w-fit text-center border-2 border-black bg-[#22c55e] px-4 py-2 text-xs font-rowdies uppercase tracking-wide text-black transition-all duration-200 hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-[3px_3px_0px_black] active:translate-y-[1px] active:shadow-none"
+          >
+            {project.buttonLabel || "GitHub"} →
+          </a>
+        )}
       </div>
     </div>
   )

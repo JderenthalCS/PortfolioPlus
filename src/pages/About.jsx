@@ -12,18 +12,16 @@ export default function About() {
         [background-size:40px_40px]"
       />
 
-      <div className="relative z-10 px-10 py-16 flex flex-col items-center text-center">
-        
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 py-10 md:py-16 flex flex-col items-center text-center">
         {/* Header */}
-        <h1 className="font-rowdies text-5xl text-black mb-12">
-          A little about me... 
+        <h1 className="font-rowdies text-3xl sm:text-4xl md:text-5xl text-black mb-8 md:mb-12 leading-tight">
+          A little about me...
         </h1>
 
         {/* Top Card */}
-        <div className="w-full max-w-5xl border-2 border-black bg-[#FEE2C1] p-6 shadow-[4px_4px_0px_black] flex flex-col items-center gap-6">
-          
+        <div className="w-full max-w-5xl border-2 border-black bg-[#FEE2C1] p-5 sm:p-6 shadow-[4px_4px_0px_black] flex flex-col items-center gap-5 sm:gap-6">
           {/* Image */}
-          <div className="w-48 h-48 border-2 border-black overflow-hidden bg-black">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 border-2 border-black overflow-hidden bg-black">
             <img
               src={abouttop}
               alt="Justin Derenthal"
@@ -32,80 +30,81 @@ export default function About() {
           </div>
 
           {/* Intro */}
-          <p className="text-black/80 text-lg leading-relaxed max-w-2xl">
-            I’m a Software Engineer focused on building data-driven systems and automation 
-            that solve real-world operational problems. My work sits at the intersection 
-            of software engineering, data, and workflow automation, where inefficiencies 
+          <p className="text-black/80 text-base sm:text-lg leading-relaxed max-w-2xl">
+            I’m a Software Engineer focused on building data-driven systems and automation
+            that solve real-world operational problems. My work sits at the intersection
+            of software engineering, data, and workflow automation, where inefficiencies
             become scalable systems.
           </p>
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 w-full max-w-5xl mt-16">
+        <div className="flex items-center gap-3 sm:gap-4 w-full max-w-5xl mt-12 md:mt-16">
           <div className="h-[2px] flex-1 bg-black" />
-          <span className="font-rowdies text-sm uppercase tracking-[0.25em] text-black/60">
+          <span className="font-rowdies text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-black/60 whitespace-nowrap">
             What I Do
           </span>
           <div className="h-[2px] flex-1 bg-black" />
         </div>
 
         {/* Main Content */}
-        <div className="mt-10 w-full max-w-4xl space-y-6 text-black/80 text-lg leading-relaxed">
+        <div className="mt-8 md:mt-10 w-full max-w-4xl space-y-5 sm:space-y-6 text-black/80 text-base sm:text-lg leading-relaxed px-1">
           <p>
-            I design and build tools that reduce manual effort, improve visibility, 
-            and help teams make better decisions. Whether it’s full-stack applications, 
+            I design and build tools that reduce manual effort, improve visibility,
+            and help teams make better decisions. Whether it’s full-stack applications,
             data pipelines, or automation systems, I focus on real impact.
           </p>
 
           <p>
-            Through help desk operations and AI consulting, I’ve worked directly with 
-            production systems—building automation workflows, analyzing datasets, 
+            Through help desk operations and AI consulting, I’ve worked directly with
+            production systems—building automation workflows, analyzing datasets,
             and improving internal processes. This shapes how I approach engineering.
           </p>
 
           <p>
-            I’m currently focused on software engineering, data engineering, and automation 
+            I’m currently focused on software engineering, data engineering, and automation
             roles where I can continue building scalable systems and working with real-world data.
           </p>
 
           <p>
-            Outside of development, I enjoy optimizing workflows, exploring new technologies, 
+            Outside of development, I enjoy optimizing workflows, exploring new technologies,
             and building projects that push my skills forward.
           </p>
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 w-full max-w-5xl mt-16">
+        <div className="flex items-center gap-3 sm:gap-4 w-full max-w-5xl mt-12 md:mt-16">
           <div className="h-[2px] flex-1 bg-black" />
-          <span className="font-rowdies text-sm uppercase tracking-[0.25em] text-black/60">
+          <span className="font-rowdies text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-black/60 whitespace-nowrap">
             Quick Facts
           </span>
           <div className="h-[2px] flex-1 bg-black" />
         </div>
 
         {/* Facts */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
-          
+        <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-5xl">
           {[
             { label: "Location", value: "Long Island, NY" },
             { label: "Education", value: "BS Computer Science (May 2026)" },
-            { 
-  label: "Experience", 
-  value: (
-    <>
-      AI Consultant <br />
-      Help Desk Tech <br />
-      General Manager
-    </>
-  ) 
-},
-            { label: "Focus", value: (
-             <>
-             Software Engineering <br/>
-             Data Engineering <br/>
-             Automation
-             </> 
-            )
+            {
+              label: "Experience",
+              value: (
+                <>
+                  AI Consultant <br />
+                  Help Desk Tech <br />
+                  General Manager
+                </>
+              ),
+            },
+            {
+              label: "Focus",
+              value: (
+                <>
+                  Software Engineering <br />
+                  Data Engineering <br />
+                  Automation
+                </>
+              ),
             },
           ].map((item) => (
             <div
@@ -115,7 +114,7 @@ export default function About() {
               <p className="text-xs uppercase tracking-wider text-black/60">
                 {item.label}
               </p>
-              <p className="font-rowdies text-black mt-1">
+              <p className="font-rowdies text-sm sm:text-base text-black mt-1 leading-relaxed">
                 {item.value}
               </p>
             </div>
