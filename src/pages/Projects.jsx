@@ -115,24 +115,25 @@ const categorizedProjects = [
     trayAccent: "bg-[#D9F2E6]/80",
     projects: [
       {
-        title: "PayLensNY – SUNY Payroll Data Analysis Platform",
-        image: payLensImg,
-        github: "https://github.com/JderenthalCS/PayLensNY",
-        summary:
-          "A data analytics platform that processes and visualizes SUNY payroll data to uncover salary trends, distribution patterns, and institutional insights.",
-        bullets: [
-          "Built ETL pipeline to clean and normalize multi-source public payroll datasets",
-          "Developed analytical models to compare salary distributions across campuses, roles, and departments",
-          "Created interactive Power BI dashboards to surface trends and support data-driven insights",
-        ],
-        tools: [
-          { name: "Python", slug: "python" },
-          { name: "Pandas", slug: "pandas" },
-          { name: "NumPy", slug: "numpy" },
-          { name: "SQL", slug: "sql" },
-          { name: "Power BI", slug: "powerbi" },
-        ],
-      },
+  title: "PayLensNY – SUNY Payroll Data Pipeline & Visualization",
+  image: payLensImg,
+  github: "https://github.com/JderenthalCS/PayLensNY",
+  summary:
+    "An end-to-end data pipeline and analytics platform that processes public SUNY payroll data to generate insights on salary distribution, trends, and workforce structure.",
+  bullets: [
+    "Built ETL pipeline to ingest, clean, and normalize multi-source datasets using Python and SQL",
+    "Designed data models and validation checks to ensure cross-source consistency and accuracy",
+    "Developed Power BI dashboards to visualize salary distributions and extract actionable insights",
+  ],
+  tools: [
+    { name: "Python", slug: "python" },
+    { name: "Pandas", slug: "pandas" },
+    { name: "NumPy", slug: "numpy" },
+    { name: "SQL", slug: "sql" },
+    { name: "Power BI", slug: "powerbi" },
+    { name: "Azure", slug: "microsoftazure" },
+  ],
+},
       {
   title: "(Independent Study) TikTok Share Predictions: Viral Content Prediction Model",
   image: ingniteTikTok,
