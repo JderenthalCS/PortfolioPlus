@@ -8,7 +8,7 @@ import automationImg from "../assets/comingsoon.jpg"
 import payLensImg from "../assets/comingsoon.jpg"
 import circuitImg from "../assets/circuitsandbox.png"
 import manageengine from "../assets/manageengine.png"
-import ingniteTikTok from "../assets/igniteTikTok.png"
+import ingniteTikTok from "../assets/IgniteTikTok.png"
 import igniteTikTok from "../assets/igniteTikTok.pdf"
 import pintFinderImg from "../assets/PintFinder_Logo.png"
 
