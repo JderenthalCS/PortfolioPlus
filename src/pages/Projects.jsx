@@ -4,10 +4,8 @@ import IconBox from "../components/IconBox"
 // Project images
 import openHandImg from "../assets/openhand.png"
 import shareBinImg from "../assets/sharebin.png"
-import automationImg from "../assets/comingsoon.jpg"
 import payLensImg from "../assets/comingsoon.jpg"
 import circuitImg from "../assets/circuitsandbox.png"
-import manageengine from "../assets/manageengine.png"
 import ingniteTikTok from "../assets/IgniteTikTok.png"
 import igniteTikTok from "../assets/igniteTikTok.pdf"
 import pintFinderImg from "../assets/PintFinder_Logo.png"
@@ -202,23 +200,6 @@ const categorizedProjects = [
   ],
 },
       {
-        title: "PintFinder – Location Discovery Platform",
-        image: pintFinderImg,
-        github: "https://github.com/JderenthalCS/PintFinder",
-        summary:
-          "A concept application designed to help users discover, rate, and track high-quality Guinness locations through a themed, user-focused interface.",
-        bullets: [
-          "Designed and implemented themed UI/UX focused on discovery and user engagement",
-          "Integrated location-based data handling and rating concepts for real-world usability",
-          "Structured application for scalability with future features like user profiles and reviews",
-        ],
-        tools: [
-          { name: "Java", slug: "java" },
-          { name: "JavaFX", slug: "javafx" },
-          { name: "Firebase", slug: "firebase" },
-        ],
-      },
-      {
   title: "OpenHand – Real-Time ASL Recognition System",
   image: openHandImg,
   github: "https://github.com/JderenthalCS/OpenHand",
@@ -243,6 +224,44 @@ const categorizedProjects = [
     { name: "Vercel", slug: "vercel" },
   ],
 },
+{
+  title: "ShareBin – Donation Drop-Off Locator Platform",
+  image: shareBinImg, // make sure this is imported
+  github: "https://github.com/JderenthalCS/ShareBin",
+  summary:
+    "A full-stack mobile application that helps users locate nearby donation bins, track contributions, and support community-driven resource sharing.",
+  bullets: [
+    "Developed Android application using Kotlin and Jetpack Compose with modern reactive UI architecture",
+    "Integrated Firebase Firestore for real-time location data, user submissions, and community-driven updates",
+    "Implemented map-based bin discovery with geolocation and dynamic filtering of donation sites",
+    "Designed scalable backend structure to support crowdsourced data and future analytics expansion",
+  ],
+  tools: [
+    { name: "Kotlin", slug: "kotlin" },
+    { name: "Jetpack Compose", slug: "android" },
+    { name: "Firebase", slug: "firebase" },
+    { name: "Firestore", slug: "firebase" },
+    { name: "Google Maps API", slug: "googlemaps" },
+    { name: "Mobile Development", slug: "mobile" },
+  ],
+},
+      {
+        title: "PintFinder – Location Discovery Platform",
+        image: pintFinderImg,
+        github: "https://github.com/JderenthalCS/PintFinder",
+        summary:
+          "A concept application designed to help users discover, rate, and track high-quality Guinness locations through a themed, user-focused interface.",
+        bullets: [
+          "Designed and implemented themed UI/UX focused on discovery and user engagement",
+          "Integrated location-based data handling and rating concepts for real-world usability",
+          "Structured application for scalability with future features like user profiles and reviews",
+        ],
+        tools: [
+          { name: "Java", slug: "java" },
+          { name: "JavaFX", slug: "javafx" },
+          { name: "Firebase", slug: "firebase" },
+        ],
+      },
     ],
   },
 ]
