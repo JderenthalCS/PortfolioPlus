@@ -156,7 +156,7 @@ export default function Home() {
               </div>
 
               <p className="mt-4 inline-block text-sm text-black/60 italic">
-                Last updated: March 2026
+                Last updated: April 2026
               </p>
             </div>
           </section>

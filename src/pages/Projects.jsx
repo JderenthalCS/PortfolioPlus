@@ -9,7 +9,8 @@ import circuitImg from "../assets/circuitsandbox.png"
 import ingniteTikTok from "../assets/IgniteTikTok.png"
 import igniteTikTok from "../assets/igniteTikTok.pdf"
 import pintFinderImg from "../assets/PintFinder_Logo.png"
-
+import jobbyImg from "../assets/jobby.png" 
+import corpoImg from "../assets/corpo.png"
 
 const featuredProjects = [
   {
@@ -74,6 +75,25 @@ const featuredProjects = [
     { name: "SQL", slug: "sql" },
     { name: "Power BI", slug: "powerbi" },
     { name: "Azure", slug: "microsoftazure" },
+  ],
+},{
+
+  title: "Jobby – Job Application Tracker Chrome Extension",
+  image: jobbyImg,
+  href: "https://chromewebstore.google.com/detail/jobby-job-application-tra/pobkallhkfpinbmmcjcfobcfeaakflik",
+  buttonLabel: "Try It Here",
+  summary:
+    "A privacy-first Chrome extension that helps users capture, organize, and track job applications directly from LinkedIn, Indeed, and other job boards.",
+  bullets: [
+    "Built and published a Chrome extension with one-click job capture, manual entry, filtering, and status tracking",
+    "Implemented local-first storage with no accounts, no tracking, and CSV/XLSX export support",
+    "Designed a clean spreadsheet-style dashboard to simplify job search organization",
+  ],
+  tools: [
+    { name: "JavaScript", slug: "javascript" },
+    { name: "HTML/CSS", slug: "htmlcss" },
+    { name: "Chrome Extension", slug: "chrome" },
+    { name: "Manifest V3", slug: "chrome" },
   ],
 }
 ]
@@ -181,6 +201,29 @@ const categorizedProjects = [
     trayAccent: "bg-[#E8E3FF]/80",
     projects: [
       {
+  title: "Corpo – Corporate Translator",
+  image: corpoImg,
+  href: "https://corpo-red.vercel.app",
+  buttonLabel: "Try it Here!",
+  github: "https://github.com/JderenthalCS/Corpo",
+  summary:
+    "A hackathon-winning AI web application that translates contracts, leases, and financial agreements into plain, understandable language.",
+  bullets: [
+    "🏆 1st Place Winner – RamHacks 2026",
+    "Reports include full financial summaries, key term explanations, and risk factor identification to empower informed decision-making",
+    "Engineered prompt workflows to convert complex agreements into clear summaries and actionable insights",
+  ],
+  tools: [
+    { name: "React", slug: "react" },
+    { name: "Python", slug: "python" },
+    { name: "Gemini API", slug: "google" },
+    { name: "Recharts", slug: "recharts" },
+    { name: "JavaScript", slug: "javascript" },
+    { name: "Supabase", slug: "supabase" },
+    { name: "Vercel", slug: "vercel" },
+  ],
+},
+      {
   title: "Circuit Simulator – Event-Driven Electrical System",
   image: circuitImg,
   github: "https://github.com/JderenthalCS/CSC311-Circuit-Project",
@@ -262,6 +305,25 @@ const categorizedProjects = [
           { name: "Firebase", slug: "firebase" },
         ],
       },
+      {
+
+  title: "Jobby – Job Application Tracker Chrome Extension",
+  image: jobbyImg,
+  summary:
+    "A privacy-first Chrome extension that helps users capture, organize, and track job applications directly from LinkedIn, Indeed, and other job boards.",
+  bullets: [
+    "Built and published a Chrome extension with one-click job capture, manual entry, filtering, and status tracking",
+    "Implemented local-first storage with no accounts, no tracking, and CSV/XLSX export support",
+    "Designed a clean spreadsheet-style dashboard to simplify job search organization",
+    "Easily exportable in both CSV and XLSX formats for user flexibility and data ownership",
+  ],
+  tools: [
+    { name: "JavaScript", slug: "javascript" },
+    { name: "HTML/CSS", slug: "htmlcss" },
+    { name: "Chrome Extension", slug: "chrome" },
+    { name: "Manifest V3", slug: "chrome" },
+  ],
+},
     ],
   },
 ]
@@ -552,16 +614,31 @@ function ProjectCard({ project, featured = false }) {
           </div>
         </div>
 
-        {!project.hideButton && (project.href || project.github) && (
-          <a
-            href={project.href || project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 w-full sm:w-fit text-center border-2 border-black bg-[#22c55e] px-4 py-2 text-xs font-rowdies uppercase tracking-wide text-black transition-all duration-200 hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-[3px_3px_0px_black] active:translate-y-[1px] active:shadow-none"
-          >
-            {project.buttonLabel || "GitHub"} →
-          </a>
-        )}
+        {!project.hideButton && (
+  <div className="mt-4 flex gap-2 flex-wrap">
+    {project.href && (
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border-2 border-black bg-[#22c55e] px-4 py-2 text-xs font-rowdies uppercase tracking-wide text-black transition-all duration-200 hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-[3px_3px_0px_black]"
+      >
+        {project.buttonLabel || "Live Demo"} →
+      </a>
+    )}
+
+    {project.github && (
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border-2 border-black bg-white px-4 py-2 text-xs font-rowdies uppercase tracking-wide text-black transition-all duration-200 hover:-translate-y-1 hover:shadow-[3px_3px_0px_black]"
+      >
+        GitHub →
+      </a>
+    )}
+  </div>
+)}
       </div>
     </div>
   )
