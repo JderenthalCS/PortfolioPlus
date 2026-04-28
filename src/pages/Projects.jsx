@@ -9,7 +9,7 @@ import circuitImg from "../assets/circuitsandbox.png"
 import ingniteTikTok from "../assets/IgniteTikTok.png"
 import igniteTikTok from "../assets/igniteTikTok.pdf"
 import pintFinderImg from "../assets/PintFinder_Logo.png"
-import jobbyImg from "../assets/jobby.png" 
+import jobbyImg from "../assets/Jobby.png" 
 import corpoImg from "../assets/Corpo.png"
 
 const featuredProjects = [
